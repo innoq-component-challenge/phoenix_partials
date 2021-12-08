@@ -1,0 +1,4 @@
+<% styles = %{ danger: "bg-danger" } %>
+<span class="badge <%= styles[assigns[:type]] || "bg-dark" %> <%= assigns[:additional_classes] %>">
+  <%= assigns[:caption] || assigns.do() %>
+</span>

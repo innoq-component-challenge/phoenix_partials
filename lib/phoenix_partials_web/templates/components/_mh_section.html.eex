@@ -1,0 +1,2 @@
+<% hl = (assigns[:hl] || 0) + 1 %>
+<%= assigns.do.(hl) %>

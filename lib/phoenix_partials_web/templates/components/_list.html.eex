@@ -1,0 +1,8 @@
+<dl class="row">
+  <% {c1, c2} = {'col-md-3', 'col-md-9'} %>
+  <%= Enum.map(Enum.with_index(@items), fn({{k, v}, i}) -> %>
+  <% bg_class = if rem(i, 2) == 0, do: "bg-primary", else: "bg-secondary" %>
+  <dt class="<%= c1 %> <%= bg_class %>"><%= call_if_requred(k) %></dt>
+  <dd class="<%= c2 %> <%= bg_class %>"><%= call_if_requred(v) %></dd>
+  <% end) %>
+</dl>

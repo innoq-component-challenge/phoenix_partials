@@ -1,0 +1,74 @@
+<div id="app" class="container">
+
+  <h1>Badges</h1>
+  <div>
+    This is a  <%= comp "badge", type: "danger", caption: "Badge" %>
+  </div>
+
+  <h1 class="mt-5">Buttons</h1>
+  <%= comp "button" do %>Simple Button<% end %>
+  <hr />
+  <%= comp "button", style: "cta", additional_classes: "text-uppercase" do %>CTA Button with uppercase<% end %>
+  <hr />
+  <%= comp "button", "data-foo": "bar", "aria-live": "polite" do %>Button with additional attributes<% end %>
+  <hr />
+  <%= comp "button", type: "button", name: "action", value: "delete" do %>Button with name and value<% end %>
+
+  <h1 class="mt-5">Cards</h1>
+  <%= comp "card", heading_level: "2", heading: fn() ->  %>
+  <span lang="de">Großartige</span> Card
+  <% end, footer: "This is the footer!" do %>
+    Welcome to the <strong>best card</strong>
+  <% end %>
+
+  <hr />
+
+  <%= comp "card", "Content baby!", heading_level: "2",
+        heading: "Another Card with a Link as Header",
+        href: "#foo" %>
+
+  <h1 class="mt-5">List</h1>
+
+  <%= comp "list", items: %{ "Type": "Car", "Color": fn() -> %><span lang=\"de\">Etwas</span> text<% end } %>
+
+  <h1 class="mt-5">MagicHeaders</h1>
+
+  <%= comp "mh_section", do: fn hl -> %>
+    <article>
+      <header>
+        <%= comp "mh_heading", "Some h1", hl: hl %>
+        <p class="tagline">
+          Content
+        </p>
+      </header>
+      <%= comp "mh_section", hl: hl, do: fn hl -> %>
+        <section>
+          <%= comp "mh_heading", "Some h2", hl: hl %>
+        </section>
+        <p>Some more content</p>
+        <%= comp "mh_section", hl: hl, do: fn hl -> %>
+          <div class="foo bar">
+            <%= comp "mh_heading", "Some h3", hl: hl %>
+          </div>
+          <p>Some more content</p>
+        <% end %>
+      <% end %>
+      <%= comp "mh_section", hl: hl, do: fn hl -> %>
+        <section>
+          <%= comp "mh_heading", "Again some h2", hl: hl %>
+        </section>
+        <p>Some more content</p>
+      <% end %>
+    </article>
+  <% end %>
+
+  <h1 class="mt-5">Form Group</h1>
+
+  <%= comp "field_group", label: "Name", name: "name" %>
+
+  <%= comp "field_group", type: "email", id: "my-email",
+                     label: "eMail",
+                     name: "users_email", value: "BOOM",
+                     error: "'BOOM' is not a valid eMail addreess" %>
+
+</div>

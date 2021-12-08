@@ -1,0 +1,8 @@
+<% id = assigns[:id] || "_fg_#{String.replace(@name, ~r/[^a-zA-Z0-9]/, "_")}_#{:rand.uniform(10000)}" %>
+<div class="field-group">
+  <label for="<%= id %>" class="form-label"><%= @label %></label>
+  <input type="<%= assigns[:type] %>" id="<%= id %>" name="<%= @name %>" value="<%= assigns[:value] %>" class="form-control <%= if assigns[:error], do: "is-invalid" %>" />
+  <%= if assigns[:error] do %>
+    <p class="invalid-feedback"><%= @error %></p>
+  <% end %>
+</div>

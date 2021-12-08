@@ -1,0 +1,11 @@
+<section class="card">
+  <div class="card-body">
+    <%= content_tag "h#{assigns[:heading_level] || 1}", class: "card-title" do %>
+      <%= if assigns[:href], do: link(call_if_requred(@heading), to: @href), else: call_if_requred(@heading) %>
+    <% end %>
+    <p class="card-text"><%= assigns.do() %></p>
+  </div>
+  <%= if assigns[:footer] do %>
+    <div class="card-footer"><%= call_if_requred(@footer) %></div>
+  <% end %>
+</section>

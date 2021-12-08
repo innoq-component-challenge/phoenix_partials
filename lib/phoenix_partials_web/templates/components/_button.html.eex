@@ -1,0 +1,8 @@
+<% styles = %{ default: "btn-secondary", cta: "btn-primary" } %>
+<% additional_attrs = Keyword.drop(Map.to_list(assigns), [:do, :style, :conn, :additional_classes]) %>
+<button
+        class="btn <%= styles[assigns[:style]] || styles[:default] %> <%= assigns[:additional_classes] %>"
+        <%= raw(Enum.join(Enum.map(additional_attrs, fn {k, v} -> "#{k} = \"#{v}\"" end), " ")) %>
+>
+<%= assigns.do() %>
+</button>
