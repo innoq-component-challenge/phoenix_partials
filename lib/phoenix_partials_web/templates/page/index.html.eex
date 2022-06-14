@@ -16,7 +16,7 @@
 
   <h1 class="mt-5">Cards</h1>
   <%= comp "card", heading_level: "2", heading: fn() ->  %>
-  <span lang="de">Großartige</span> Card
+  <span lang="de">Großartige</span> Card <%= comp "badge", caption: "test" %>
   <% end, footer: "This is the footer!" do %>
     Welcome to the <strong>best card</strong>
   <% end %>
@@ -29,7 +29,7 @@
 
   <h1 class="mt-5">List</h1>
 
-  <%= comp "list", items: %{ "Type": "Car", "Color": fn() -> %><span lang=\"de\">Etwas</span> text<% end } %>
+  <%= comp "list", items: %{ "Type": "Car", "Color": fn() -> %><span lang="de">Etwas</span> text<% end } %>
 
   <h1 class="mt-5">MagicHeaders</h1>
 
